@@ -1,12 +1,16 @@
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const path = require("path");
 
-module.exports = {
-  mode: "production",
+const isProduction = process.env.NODE_ENV == "production";
+
+const config = {
   entry: "./src/index.tsx",
   output: {
-    filename: "build.js",
     path: path.resolve(__dirname, "dist"),
+  },
+  devServer: {
+    open: true,
+    host: "localhost",
   },
   module: {
     rules: [
@@ -24,4 +28,13 @@ module.exports = {
       template: "src/index.html",
     }),
   ],
+};
+
+module.exports = () => {
+  if (isProduction) {
+    config.mode = "production";
+  } else {
+    config.mode = "development";
+  }
+  return config;
 };
