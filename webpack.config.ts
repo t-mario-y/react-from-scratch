@@ -53,6 +53,7 @@ const config: WebpackOptionsNormalized = {
 
 if (isProduction) {
   config.mode = "production";
+  config.output.clean = true;
 } else {
   config.mode = "development";
 }
