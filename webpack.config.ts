@@ -36,7 +36,7 @@ const config: WebpackOptionsNormalized = {
     type: "filesystem",
   },
   devServer: {
-    contentBase: "dist",
+    contentBase: path.resolve(__dirname, "dist"),
     open: true,
   },
   node: {},
