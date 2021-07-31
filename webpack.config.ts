@@ -32,9 +32,7 @@ const config: WebpackOptionsNormalized = {
       template: "src/index.html",
     }),
   ],
-  cache: {
-    type: "filesystem",
-  },
+  cache: { type: "memory" },
   devServer: {
     contentBase: path.resolve(__dirname, "dist"),
     open: true,
@@ -54,6 +52,7 @@ const config: WebpackOptionsNormalized = {
 if (isProduction) {
   config.mode = "production";
   config.output.clean = true;
+  config.devtool = false;
 } else {
   config.mode = "development";
 }
