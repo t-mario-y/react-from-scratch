@@ -6,6 +6,10 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack --node-env=production",
+    "lint": "npm-run-all --serial lint:*",
+    "lint:eslint": "eslint .",
+    "lint:prettier": "prettier --check .",
+    "lint:tsc": "tsc --noEmit",
     "start:dev": "webpack serve",
     "start:prod": "serve -s ./dist -l 3000"
   },
@@ -29,6 +33,7 @@
     "eslint": "^7.31.0",
     "eslint-plugin-react": "^7.24.0",
     "html-webpack-plugin": "^5.3.2",
+    "npm-run-all": "^4.1.5",
     "prettier": "^2.3.2",
     "serve": "^12.0.0",
     "ts-loader": "^9.2.4",
