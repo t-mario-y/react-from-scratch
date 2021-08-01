@@ -57,6 +57,10 @@ if (isProduction) {
   config.output.clean = true;
   config.devtool = false;
 } else {
+  // target: "browserslist" のとき、webpack-dev-server の HMRでブラウザがリロードされない。
+  // 下記issueはcloseされているが、webpack:5.47.0, webpack-dev-server:3.11.2 で再現するため、webpack-dev-server で起動する際にtargetをwebに設定する。
+  // https://github.com/webpack/webpack-dev-server/issues/2758
+  config.target = "web";
   config.mode = "development";
   config.devtool = "eval-source-map";
 }
