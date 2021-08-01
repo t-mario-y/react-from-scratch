@@ -21,11 +21,12 @@ const config: WebpackOptionsNormalized = {
       {
         test: /\.(ts|tsx)$/,
         use: "ts-loader",
+        exclude: ["/node_modules/"],
       },
     ],
   },
   resolve: {
-    extensions: [".js", ".ts", ".tsx", ".css"],
+    extensions: [".ts", ".js", ".tsx"],
   },
   plugins: [
     new HtmlWebpackPlugin({
@@ -36,6 +37,8 @@ const config: WebpackOptionsNormalized = {
   devServer: {
     contentBase: path.resolve(__dirname, "dist"),
     open: true,
+    hot: true,
+    port: 3000,
   },
   node: {},
   infrastructureLogging: {},
@@ -55,6 +58,7 @@ if (isProduction) {
   config.devtool = false;
 } else {
   config.mode = "development";
+  config.devtool = "eval-source-map";
 }
 
 export default config;
