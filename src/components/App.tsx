@@ -2,7 +2,7 @@ import React from "react";
 import { MyComponent } from "./MyComponent";
 import { NotHMRComponent } from "./NotHMRComponent";
 
-const App = (): JSX.Element => {
+export const App = (): JSX.Element => {
   return (
     <div>
       <h1>
