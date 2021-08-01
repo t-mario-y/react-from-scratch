@@ -2,9 +2,16 @@
   "name": "react-from-scratch",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "src/index.tsx",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack --node-env=production",
+    "lint": "npm-run-all --serial lint:*",
+    "lint:eslint": "eslint .",
+    "lint:prettier": "prettier --check .",
+    "lint:tsc": "tsc --noEmit",
+    "start:dev": "webpack serve",
+    "start:prod": "serve -s ./dist -l 3000"
   },
   "repository": {
     "type": "git",
@@ -16,5 +23,28 @@
   "bugs": {
     "url": "https://github.com/t-mario-y/react-from-scratch/issues"
   },
-  "homepage": "https://github.com/t-mario-y/react-from-scratch#readme"
+  "homepage": "https://github.com/t-mario-y/react-from-scratch#readme",
+  "devDependencies": {
+    "@types/node": "^16.4.5",
+    "@types/react": "^17.0.15",
+    "@types/react-dom": "^17.0.9",
+    "@typescript-eslint/eslint-plugin": "^4.28.5",
+    "@typescript-eslint/parser": "^4.28.5",
+    "eslint": "^7.31.0",
+    "eslint-plugin-react": "^7.24.0",
+    "html-webpack-plugin": "^5.3.2",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^2.3.2",
+    "ts-loader": "^9.2.4",
+    "ts-node": "^10.1.0",
+    "typescript": "^4.3.5",
+    "webpack": "^5.47.0",
+    "webpack-cli": "^4.7.2",
+    "webpack-dev-server": "^3.11.2"
+  },
+  "dependencies": {
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "serve": "^12.0.0"
+  }
 }
