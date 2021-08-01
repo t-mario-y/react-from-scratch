@@ -1,6 +1,5 @@
 import React from "react";
 import { MyComponent } from "./MyComponent";
-import { NotHMRComponent } from "./NotHMRComponent";
 
 export const App = (): JSX.Element => {
   return (
@@ -11,5 +10,3 @@ export const App = (): JSX.Element => {
     </div>
   );
 };
-
-export default App;
